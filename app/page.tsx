@@ -53,7 +53,7 @@ export default function Home() {
             y: [0, -2, 2, -2, 2, 0],
           }}
           transition={{
-            duration: p > 0 ? 1 / (p / 10) : 1,
+            duration: 1/p,
             repeat: Infinity,
             ease: "linear",
           }}
