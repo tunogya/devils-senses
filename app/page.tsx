@@ -42,7 +42,7 @@ export default function Home() {
       </div>
       <div className="p-6 rounded-lg shadow-xl text-center">
         <motion.div
-          className="w-20 h-20 bg-blue-500 rounded-full"
+          className="w-20 h-20 bg-pink-600 rounded-full"
           animate={{
             x: [0, -2, 2, -2, 2, 0],
             y: [0, -2, 2, -2, 2, 0],
