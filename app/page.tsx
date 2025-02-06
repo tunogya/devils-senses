@@ -1,21 +1,21 @@
 "use client";
 
-import {useEffect, useState} from "react";
-import {motion} from "framer-motion";
+import {useEffect, useRef, useState} from "react";
 
 export default function Home() {
-  const [p, setP] = useState(0);
   const [price, setPrice] = useState([0, 0]);
   const [FP, setFP] = useState(0);
-
-  const duration = p > 0 ? Math.max(0.01, Math.floor((1 / p) * 100) / 100) : 1;
+  const [frequency, setFrequency] = useState(0.1);
+  const [position, setPosition] = useState(0);
+  const requestRef = useRef<number>(0);
+  const previousTimeRef = useRef<number>(0);
 
   useEffect(() => {
     const socket = new WebSocket("wss://stream.binance.com:9443/ws/btcusdt@ticker");
 
     socket.onmessage = (event) => {
       const data = JSON.parse(event.data)
-      setP(Math.min(Math.abs(parseFloat(data.P)), 100));
+      setFrequency(Math.min(Math.abs(parseFloat(data.P)), 100) * 10);
       setFP(parseFloat(data.P));
       setPrice((prevPrice) => {
         const newPrice = parseFloat(data.c);
@@ -32,6 +32,25 @@ export default function Home() {
     };
   }, []);
 
+  const animate = (time: number) => {
+    if (previousTimeRef.current != undefined) {
+      const deltaTime = (time - previousTimeRef.current) / 1000;
+      const interval = 1 / frequency;
+      if (deltaTime >= interval) {
+        setPosition((prevPosition) => (prevPosition === -1 ? 1 : -1));
+        previousTimeRef.current = time;
+      }
+    } else {
+      previousTimeRef.current = time;
+    }
+    requestRef.current = requestAnimationFrame(animate);
+  };
+
+  useEffect(() => {
+    requestRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(requestRef.current);
+  }, [frequency]);
+
   return (
     <div className="flex items-center justify-center h-screen">
       <div className={"absolute top-0 left-0 right-0"}>
@@ -46,19 +65,10 @@ export default function Home() {
         </div>
       </div>
       <div className="p-6 rounded-lg text-center">
-        <motion.div
-          className="w-20 h-20 bg-pink-600 rounded-full"
-          animate={{
-            x: [0, -2, 2, -2, 2, 0],
-            y: [0, -2, 2, -2, 2, 0],
-          }}
-          transition={{
-            duration,
-            repeat: Infinity,
-            ease: "linear",
-          }}
+        <div
+          style={{ transform: `translateX(${position}px) translateY(${position}px)` }}
+          className="w-20 h-10 bg-pink-600 rounded-full"
         />
-        <div>{duration}</div>
       </div>
     </div>
   );
