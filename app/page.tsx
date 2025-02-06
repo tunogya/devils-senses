@@ -70,8 +70,9 @@ export default function Home() {
       <div className="p-6 rounded-lg text-center flex flex-col items-center justify-center">
         <div
           style={{ transform: `translateX(${position}px) translateY(${position}px)` }}
-          className="w-20 h-10 bg-pink-600 rounded-full"
-        />
+          className="w-20 h-10 bg-pink-600 rounded-full flex items-center justify-center"
+        >
+        </div>
       </div>
       <div className={"absolute bottom-4 md:bottom-10 left-0 right-0 w-full flex items-center justify-center"}>
         <div className={"flex flex-row gap-10 text-gray-300 font-bold"}>
