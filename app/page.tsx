@@ -87,6 +87,10 @@ export default function Home() {
                   className={`w-10 h-10 border-2 border-gray-300 flex items-center justify-center rounded-full ${multiples === 10 ? "bg-pink-600 text-white" : ""}`}>
             10x
           </button>
+          <button onClick={() => {setMultiples(50)}}
+                  className={`w-10 h-10 border-2 border-gray-300 flex items-center justify-center rounded-full ${multiples === 50 ? "bg-pink-600 text-white" : ""}`}>
+            50x
+          </button>
         </div>
       </div>
     </div>
