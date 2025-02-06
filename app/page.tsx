@@ -30,8 +30,6 @@ export default function Home() {
     };
   }, []);
 
-
-
   return (
     <div className="flex items-center justify-center h-screen">
       <div className={"absolute top-0 left-0 right-0"}>
@@ -45,7 +43,7 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <div className="p-6 rounded-lg shadow-xl text-center">
+      <div className="p-6 rounded-lg text-center">
         <motion.div
           className="w-20 h-20 bg-pink-600 rounded-full"
           animate={{
@@ -53,7 +51,7 @@ export default function Home() {
             y: [0, -2, 2, -2, 2, 0],
           }}
           transition={{
-            duration: 1/p,
+            duration: Math.floor(1/p*100)/100,
             repeat: Infinity,
             ease: "linear",
           }}
