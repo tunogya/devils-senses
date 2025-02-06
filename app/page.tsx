@@ -8,6 +8,8 @@ export default function Home() {
   const [price, setPrice] = useState([0, 0]);
   const [FP, setFP] = useState(0);
 
+  const duration = p > 0 ? Math.max(0.01, Math.floor((1 / p) * 100) / 100) : 1;
+
   useEffect(() => {
     const socket = new WebSocket("wss://stream.binance.com:9443/ws/btcusdt@ticker");
 
@@ -51,11 +53,12 @@ export default function Home() {
             y: [0, -2, 2, -2, 2, 0],
           }}
           transition={{
-            duration: Math.floor(1/p*100)/100,
+            duration,
             repeat: Infinity,
             ease: "linear",
           }}
         />
+        <div>{duration}</div>
       </div>
     </div>
   );
