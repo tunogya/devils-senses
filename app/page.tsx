@@ -5,7 +5,7 @@ import {motion} from "framer-motion";
 
 export default function Home() {
   const [p, setP] = useState(0);
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState([0, 0]);
   const [FP, setFP] = useState(0);
 
   useEffect(() => {
@@ -15,7 +15,10 @@ export default function Home() {
       const data = JSON.parse(event.data)
       setP(Math.min(Math.abs(parseFloat(data.P)), 100));
       setFP(parseFloat(data.P));
-      setPrice(parseFloat(data.c));
+      setPrice((prevPrice) => {
+        const newPrice = parseFloat(data.c);
+        return [prevPrice[1], newPrice];
+      });
     };
 
     socket.onerror = (error) => {
@@ -27,15 +30,17 @@ export default function Home() {
     };
   }, []);
 
+
+
   return (
     <div className="flex items-center justify-center h-screen">
       <div className={"absolute top-0 left-0 right-0"}>
         <div className={"text-lg font-semibold text-white m-2"}>
           <p>BTC/USDT</p>
-          <p>
-            {price.toFixed(2)}
+          <p className={`${price[1] >= price[0] ? "text-green-500" : "text-red-500"}`}>
+            {price[1]?.toFixed(2)}
           </p>
-          <p>
+          <p className={`${price[1] >= price[0] ? "text-green-500" : "text-red-500"}`}>
             {FP}%
           </p>
         </div>
