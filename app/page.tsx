@@ -101,12 +101,12 @@ export default function Home() {
               fill="#FF1493"/>
           </svg>
         </div>
-        <button className={"font-bold  border border-white px-5 py-2 rounded-xl text-white hover:bg-[#FF1493] opacity-50 hover:opacity-100"}>
+        <button className={"font-bold  border-2 border-white px-5 py-2 rounded-xl text-white hover:bg-[#FF1493] opacity-50 hover:opacity-100"}>
           Connect my toys
         </button>
       </div>
       <div className={"flex p-3"}>
-        <button className={"text-[16px] text-white flex items-center gap-10 px-4 py-2 border border-white rounded-xl opacity-50 hover:opacity-100"}>
+        <button className={"text-[16px] text-white flex items-center gap-10 px-4 py-2 border-2 border-white rounded-xl opacity-50 hover:opacity-100"}>
           <p className={"font-semibold"}>BTC <span className={"text-[14px] font-light"}>Bitcoin</span></p>
           <p className={`${price[1] >= price[0] ? "text-green-500" : "text-red-500"} font-semibold`}>
             ${price[1]?.toFixed(2)}
@@ -120,8 +120,11 @@ export default function Home() {
         <div className="p-6 rounded-lg text-center flex flex-col items-center justify-center">
           <div
             style={{transform: `translateX(${position}px) translateY(${position}px)`}}
-            className="w-20 h-10 bg-[#FF1493] rounded-full flex items-center justify-center"
+            className="flex items-center justify-center"
           >
+            <svg width="83" height="80" viewBox="0 0 83 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M82.5963 8.87129C82.5863 8.64129 82.5763 8.41129 82.5663 8.18129C82.5463 7.67129 82.5163 7.13129 82.4763 6.61129C82.4063 5.72129 82.2663 4.93129 82.0563 4.18129C81.8263 3.37129 81.5363 2.69129 81.1563 2.09129C80.5963 1.20129 79.7863 0.571292 78.7663 0.241292C77.9863 -0.00870782 77.1563 -0.0687077 76.2363 0.0812923C75.2263 0.241292 74.2363 0.591292 73.2063 1.15129C72.0263 1.79129 70.9463 2.65129 69.9063 3.78129C68.9963 4.76129 68.1663 5.88129 67.3663 7.22129C66.6163 8.47129 65.9063 9.88129 65.1263 11.6513C64.1063 13.9713 63.1863 16.3513 62.4163 18.4113L62.2164 18.9413C61.3264 21.2813 60.4163 23.7013 59.4263 26.0513C58.3163 28.7013 57.2864 30.9913 56.2864 33.0613C56.1964 33.2513 56.0763 33.4813 55.9563 33.6913C54.9163 35.3913 53.7863 37.1313 52.4763 39.0113C51.0463 41.0713 49.5463 42.8113 47.8863 44.3113C46.6963 45.3913 45.5863 46.2313 44.4863 46.8913C43.8363 47.2813 43.2263 47.5713 42.6063 47.8013C42.1563 47.9613 41.7663 48.0513 41.4063 48.0713C40.7163 48.1113 40.2763 47.8513 39.9863 47.2313C39.9163 47.0913 39.8763 46.9813 39.8563 46.8713C39.7863 46.5813 39.7463 46.3313 39.7063 46.1013C39.5963 45.3213 39.6363 44.5613 39.7363 43.6413C39.8463 42.5813 40.0363 41.4813 40.3063 40.2613C40.5863 39.0213 40.8663 37.7813 41.1563 36.5513L41.4163 35.4213C41.8463 33.5613 42.2263 31.8713 42.4563 30.1113C42.6163 28.8713 42.6763 27.7613 42.6263 26.7113C42.5763 25.8413 42.4763 25.0713 42.2863 24.3713C42.0763 23.5413 41.7963 22.8313 41.4363 22.1913C41.1463 21.6813 40.8363 21.2813 40.4663 20.9813C40.0963 20.6713 39.7063 20.4913 39.2763 20.4513C38.7863 20.4013 38.3063 20.4613 37.8563 20.6313C37.4063 20.8013 36.9763 21.0613 36.5663 21.4213C35.9563 21.9413 35.4163 22.5813 34.9163 23.3713C34.3563 24.2713 33.8863 25.3013 33.5063 26.5213C33.0563 27.9513 32.7663 29.5013 32.6063 31.4113C32.4863 32.8313 32.4363 34.2713 32.4563 35.6713C32.4663 36.3713 32.4863 37.1913 32.5163 38.0413C32.5763 39.6313 32.6363 40.9313 32.6963 42.1513C32.7863 43.8513 32.7063 45.4213 32.4563 46.9313C32.2163 48.4113 31.5763 49.7213 30.5663 50.8213C29.9463 51.5013 29.2263 52.1013 28.3663 52.6713C27.5463 53.2113 26.6363 53.7013 25.5763 54.1813C24.5063 54.6613 23.4063 55.0613 22.1863 55.5013C19.7363 56.3813 17.7763 57.1813 16.0263 58.0213C14.5663 58.7213 13.1263 59.5113 11.7363 60.2713L11.4263 60.4413C10.6363 60.8713 9.83635 61.3513 9.06635 61.8813C6.72635 63.4513 4.68635 65.2613 3.00635 67.2613C2.14635 68.2813 1.48635 69.2813 0.976347 70.3013C0.436347 71.3913 0.126347 72.4313 0.0263469 73.4813C-0.0236531 74.0313 -0.00365345 74.5613 0.0963465 75.0613C0.286347 76.0613 0.816346 76.8813 1.67635 77.5113C2.69635 78.2513 3.83635 78.7313 5.05635 78.9213C5.67635 79.0213 6.32635 79.0713 6.98635 79.0713C7.41635 79.0713 7.85635 79.0513 8.29635 79.0113C8.77635 78.9613 9.24635 78.9213 9.71635 78.8613L9.87635 78.8413C10.5763 78.7513 11.2963 78.6613 11.9963 78.5513C12.9363 78.4013 13.9463 78.2313 15.0863 78.0213C16.5463 77.7613 17.8263 77.4713 19.0063 77.1313C19.6463 76.9513 20.2863 76.7313 20.8963 76.5313C21.2063 76.4313 21.5163 76.3213 21.8263 76.2213C23.5163 75.6713 25.1863 75.0313 26.8363 74.4013C28.7663 73.6613 30.6563 72.7713 32.6063 71.6713C35.3663 70.1213 37.4863 68.8913 39.4763 67.7013C45.4763 64.1013 50.9763 60.0713 55.8263 55.7413C58.0963 53.7113 60.0063 51.8413 61.6563 50.0213C62.3763 49.2313 63.3063 48.1713 64.1363 47.0313L64.4263 46.6413C64.6063 46.4013 64.7763 46.1513 64.9563 45.9113L65.7663 44.8113C66.4763 43.8513 67.2063 42.8513 67.9363 41.8813C69.1163 40.3213 70.2663 38.6713 71.3363 36.9813C72.6163 34.9613 73.8863 32.9413 75.1663 30.9213C76.3463 29.0613 77.3663 27.2713 78.2863 25.4713C79.2763 23.5213 80.0063 21.8813 80.5663 20.2913C81.3663 18.0113 81.9363 15.5613 82.2563 13.0213C82.4463 11.5113 82.5463 10.1813 82.5663 8.94129C82.5963 8.88129 82.5963 8.88129 82.5963 8.87129Z" fill="#FF1493"/>
+            </svg>
           </div>
         </div>
       </div>
@@ -130,25 +133,25 @@ export default function Home() {
           <button onClick={() => {
             setMultiples(1)
           }}
-                  className={`opacity-50 hover:opacity-100 w-10 h-10 border border-gray-300 flex items-center justify-center rounded-full ${multiples === 1 ? "bg-[#FF1493] text-white" : ""}`}>
+                  className={`opacity-50 hover:opacity-100 w-10 h-10 border-2 border-gray-300 flex items-center justify-center rounded-full ${multiples === 1 ? "bg-[#FF1493] text-white" : ""}`}>
             1x
           </button>
           <button onClick={() => {
             setMultiples(5)
           }}
-                  className={`opacity-50 hover:opacity-100 hover:scale-105 w-10 h-10 border border-gray-300 flex items-center justify-center rounded-full ${multiples === 5 ? "bg-[#FF1493] text-white" : ""}`}>
+                  className={`opacity-50 hover:opacity-100 hover:scale-105 w-10 h-10 border-2 border-gray-300 flex items-center justify-center rounded-full ${multiples === 5 ? "bg-[#FF1493] text-white" : ""}`}>
             5x
           </button>
           <button onClick={() => {
             setMultiples(10)
           }}
-                  className={`opacity-50 hover:opacity-100 hover:scale-125 w-10 h-10 border border-gray-300 flex items-center justify-center rounded-full ${multiples === 10 ? "bg-[#FF1493] text-white" : ""}`}>
+                  className={`opacity-50 hover:opacity-100 hover:scale-125 w-10 h-10 border-2 border-gray-300 flex items-center justify-center rounded-full ${multiples === 10 ? "bg-[#FF1493] text-white" : ""}`}>
             10x
           </button>
           <button onClick={() => {
             setMultiples(50)
           }}
-                  className={`opacity-50 hover:opacity-100 hover:scale-150 w-10 h-10 border border-gray-300 flex items-center justify-center rounded-full ${multiples === 50 ? "bg-[#FF1493] text-white" : ""}`}>
+                  className={`opacity-50 hover:opacity-100 hover:scale-150 w-10 h-10 border-2 border-gray-300 flex items-center justify-center rounded-full ${multiples === 50 ? "bg-[#FF1493] text-white" : ""}`}>
             50x
           </button>
         </div>
